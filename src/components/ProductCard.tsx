@@ -1,0 +1,63 @@
+
+import Image from 'next/image';
+import Link from 'next/link';
+import { Card, CardContent, CardFooter, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
+import { Button } from '@/components/ui/button';
+import { Tag, ShieldCheck, CircleDollarSign } from 'lucide-react';
+import type { Product } from '@/types';
+
+interface ProductCardProps {
+  product: Product;
+}
+
+export function ProductCard({ product }: ProductCardProps) {
+  return (
+    <Card className="flex flex-col overflow-hidden h-full hover:shadow-xl transition-shadow duration-300">
+      <CardHeader className="p-0 relative">
+        <Link href={`/products/${product.id}`} aria-label={`View details for ${product.brand} ${product.model}`}>
+          <Image
+            src={product.imageUrl}
+            alt={`${product.brand} ${product.model}`}
+            data-ai-hint={product.aiHint}
+            width={400}
+            height={300}
+            className="object-cover w-full h-48"
+          />
+        </Link>
+        <div className="absolute top-2 right-2 bg-primary text-primary-foreground px-2 py-1 text-xs font-semibold rounded-md shadow">
+          {product.condition}
+        </div>
+      </CardHeader>
+      <CardContent className="p-4 flex-grow">
+        <CardTitle className="font-headline text-xl mb-1">
+          <Link href={`/products/${product.id}`} className="hover:text-primary transition-colors">
+            {product.brand} {product.model}
+          </Link>
+        </CardTitle>
+        <div className="flex items-center space-x-2 mb-2">
+          <CircleDollarSign className="w-5 h-5 text-accent" />
+          <p className="text-2xl font-semibold text-accent">₹{product.price.toLocaleString()}</p>
+        </div>
+        <div className="space-y-1 text-sm text-muted-foreground mb-3">
+          <div className="flex items-center">
+            <Tag className="w-4 h-4 mr-2 text-primary" /> Capacity: {product.capacity}
+          </div>
+          <div className="flex items-center">
+            <ShieldCheck className="w-4 h-4 mr-2 text-primary" /> Warranty: {product.warranty}
+          </div>
+        </div>
+        <CardDescription className="text-sm text-foreground/80 line-clamp-3 leading-relaxed">
+          {product.description || 'Loading description...'}
+        </CardDescription>
+      </CardContent>
+      <CardFooter className="p-4 pt-0 grid grid-cols-2 gap-2">
+        <Link href={`/checkout/${product.id}`} className="w-full">
+          <Button className="w-full bg-accent hover:bg-accent/90 text-accent-foreground">Buy Now</Button>
+        </Link>
+        <Link href={`/products/${product.id}`} className="w-full">
+          <Button variant="outline" className="w-full">Know More</Button>
+        </Link>
+      </CardFooter>
+    </Card>
+  );
+}

@@ -1,0 +1,22 @@
+{
+  "node": {
+    "406edce2386fd338de19a3f0dadfefe01936cab234": {
+      "workers": {
+        "app/products/page": {
+          "moduleId": "(rsc)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22%2Fhome%2Fuser%2Fstudio%2Fsrc%2Fai%2Fflows%2Fgenerate-product-description.ts%22%2C%5B%7B%22id%22%3A%22406edce2386fd338de19a3f0dadfefe01936cab234%22%2C%22exportedName%22%3A%22generateProductDescription%22%7D%5D%5D%5D&__client_imported__=!",
+          "async": false
+        },
+        "app/products/[id]/page": {
+          "moduleId": "(rsc)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22%2Fhome%2Fuser%2Fstudio%2Fsrc%2Fai%2Fflows%2Fgenerate-product-description.ts%22%2C%5B%7B%22id%22%3A%22406edce2386fd338de19a3f0dadfefe01936cab234%22%2C%22exportedName%22%3A%22generateProductDescription%22%7D%5D%5D%5D&__client_imported__=!",
+          "async": false
+        }
+      },
+      "layer": {
+        "app/products/page": "rsc",
+        "app/products/[id]/page": "rsc"
+      }
+    }
+  },
+  "edge": {},
+  "encryptionKey": "bP5xTd7VXCXEXllr97gjrTqtmx1IJ5bWwa/FyV1PSqA="
+}
